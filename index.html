@@ -4,10 +4,13 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Concurrent Python</title>
 
+    <link rel="stylesheet" href="https://s3.amazonaws.com/static.slid.es/fonts/montserrat/montserrat.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+
+		<link rel="stylesheet" href="css/moo.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,8 +27,36 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+          <h2>Concurrent Python</h2>
+          <h4>PyCon Thailand 2018</h4>
+        </section>
+				<section>
+          <img src="images/profile.jpg" width="30%" height="30%" style="border-radius: 200px; border-color: #9ccafd1a" />
+          <div>
+            <div>Ukrid Kuldiloke</div>
+            <div style="font-size: 0.7em">Technical lead at Kaidee</div>
+          </div>
+          <p style="height: 10%"></p>
+          <div>
+            <div style="font-size: 0.5em">Email: ukrid.k@kaidee.com</div>
+            <div style="font-size: 0.5em">Facebook: https://fb.me/ukrid.kuldiloke</div>
+          </div>
+        </section>
+        <section>
+          <div style="width: 25%; position: relative; float: left;">
+            <iframe style="height: 25vh" src="images/process.svg"></iframe>
+            <div style="font-size: 0.7em">Multiprocess</div>
+          </div>
+          <div style="width: 25%; position: relative; float: left; left: 13%">
+            <iframe style="height: 25vh" src="images/process.svg"></iframe>
+            <div style="font-size: 0.7em">Multithread</div>
+          </div>
+          <div style="width: 25%; position: relative; float: right;">
+            <iframe style="height: 25vh" src="images/process.svg"></iframe>
+            <div style="font-size: 0.7em">Eventloop</div>
+          </div>
+        </section>
 			</div>
 		</div>
 
