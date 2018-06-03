@@ -4,3 +4,7 @@
     font-family: "Montserrat";
     text-transform: none;
 }
+
+.reveal .slide-background.present {
+  opacity: 0.6;
+}
