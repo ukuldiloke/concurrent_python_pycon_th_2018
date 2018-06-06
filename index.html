@@ -46,18 +46,18 @@
         <section>
           <div style="display: flex; padding-bottom: 5vh">
             <div style="flex: 1;display: flex;justify-content: flex-end;align-items: center;">
-              <iframe src="images/process_two_circle.svg"></iframe>
-            </div>
-            <div style="flex: 1;display: flex;align-items: center;">
-              <div style="font-size: 0.7em;">Multiprocess</div>
-            </div>
-          </div>
-          <div style="display: flex; padding-bottom: 5vh">
-            <div style="flex: 1;display: flex;justify-content: flex-end;align-items: center;">
               <iframe src="images/thread_two_circle.svg"></iframe>
             </div>
             <div style="flex: 1;display: flex;align-items: center;">
               <div style="font-size: 0.7em">Multithread</div>
+            </div>
+          </div>
+          <div style="display: flex; padding-bottom: 5vh">
+            <div style="flex: 1;display: flex;justify-content: flex-end;align-items: center;">
+              <iframe src="images/process_two_circle.svg"></iframe>
+            </div>
+            <div style="flex: 1;display: flex;align-items: center;">
+              <div style="font-size: 0.7em;">Multiprocess</div>
             </div>
           </div>
           <div style="display: flex; padding-bottom: 5vh">
@@ -69,8 +69,45 @@
             </div>
           </div>
         </section>
-        <section data-background-iframe="images/process_two_circle_bg.svg">
-          <h2>Multiprocess</h2>
+        <section>
+          <section data-background-iframe="images/thread_two_circle_bg.svg">
+            <h2>Multithread</h2>
+          </section>
+          <section>
+            <h2>Multithread</h2>
+          </section>
+        </section>
+        <section>
+          <section data-background-iframe="images/process_two_circle_bg.svg">
+            <h2>Multiprocess</h2>
+          </section>
+          <section>
+            <div style="display: flex; flex-flow: row;">
+              <div style="flex: 1; padding: 20px; font-size: 0.8em;">
+                <h3>Pro</h3>
+                <ul>
+                  <li>Good performance</li>
+                  <li>Take adventage of multicore architecture</li>
+                  <li>Does not has limitation from GIL</li>
+                </ul>
+              </div>
+              <div style="flex: 1; padding: 20px; font-size: 0.8em;">
+                <h3>Con</h3>
+                <ul>
+                  <li>Not efficient data sharing</li>
+                  <li>Use more system resources</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section data-background-iframe="images/event_loop_bg.svg">
+            <h2>Eventloop</h2>
+          </section>
+          <section>
+            <h2>Eventloop</h2>
+          </section>
         </section>
 			</div>
 		</div>
