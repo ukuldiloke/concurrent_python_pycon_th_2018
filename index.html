@@ -73,22 +73,57 @@
           <section data-background-iframe="images/thread_two_circle_bg.svg">
             <h2>Multithread</h2>
           </section>
-          <section>
-            <h2>Multithread</h2>
+          <section data-background-iframe="images/thread_two_circle.svg">
+            <div style="display: flex; flex-flow: row;">
+              <div style="flex: 1; padding: 20px; font-size: 0.8em;">
+                <h3>Pro</h3>
+                <ul>
+                  <li>Light weight</li>
+                  <li>Good for I/O related tasks</li>
+                  <li>Easy data sharing</li>
+                </ul>
+              </div>
+              <div style="flex: 1; padding: 20px; font-size: 0.8em;">
+                <h3>Con</h3>
+                <ul>
+                  <li>Addressable memory is limited to the max memory of a single process</li>
+                  <li>Not suitable for computing heavy tasks</li>
+                  <li>Has limitation from <strong>GIL</strong></li>
+                </ul>
+              </div>
+            </div>
           </section>
+        </section>
+        <section>
+            <section>
+              <h2>GIL</h2>
+              <h5>(Global Interpreter Lock)</h5>
+            </section>
+            <section>
+              <div style="display: flex">
+                <div style="flex: 1">
+                  <h4>Free</h4>
+                  <iframe src="images/process_two_circle.svg" style="height: 50vh"></iframe>
+                </div>
+                <div style="flex: 1">
+                  <h4>Lock</h4>
+                  <iframe src="images/thread_two_circle.svg" style="height: 50vh"></iframe>
+                </div>
+              </div>
+            </section>
         </section>
         <section>
           <section data-background-iframe="images/process_two_circle_bg.svg">
             <h2>Multiprocess</h2>
           </section>
-          <section>
+          <section data-background-iframe="images/process_two_circle.svg">
             <div style="display: flex; flex-flow: row;">
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
                 <h3>Pro</h3>
                 <ul>
                   <li>Good performance</li>
                   <li>Take adventage of multicore architecture</li>
-                  <li>Does not has limitation from GIL</li>
+                  <li>Does not has limitation from <strong>GIL</strong></li>
                 </ul>
               </div>
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
