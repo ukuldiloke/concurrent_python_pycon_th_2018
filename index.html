@@ -95,15 +95,26 @@
           </section>
         </section>
         <section>
-          <section>
+          <section data-background-iframe="images/lock.svg">
             <h2>GIL</h2>
             <h5>(Global Interpreter Lock)</h5>
           </section>
           <section>
-            <iframe src="images/process_interpreter_thread.svg" class="stretch"></iframe>
-          </section>
-          <section>
-            <iframe src="images/process_interpreter_thread_animate.svg" class="stretch"></iframe>
+            <div class="stretch">
+              <div style="display: flex; height: 100%; flex-flow: row;">
+                <iframe src="images/thread_in_interpreter.svg" style="flex: 1"></iframe>
+                <div style="display: flex; flex: 1">
+                  <div style="display: flex; flex: 1; flex-flow: column;" class="fragment">
+                    <h6>Expected</h6>
+                    <iframe src="images/multi_core_simultaneous_run.svg" style="flex: 1"></iframe>
+                  </div>
+                  <div style="display: flex; flex: 1; flex-flow: column;" class="fragment">
+                    <h6>Actual</h6>
+                    <iframe src="images/multi_core_block_run.svg" style="flex: 1"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
         </section>
         <section>
