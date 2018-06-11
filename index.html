@@ -73,6 +73,31 @@
           <section data-background-iframe="images/thread_two_circle_bg.svg">
             <h2>Multithread</h2>
           </section>
+          <section>
+            <h4>Code example</h4>
+            <pre><code data-trim data-noescape style="font-size: 0.9em">
+              from concurrent.futures import ThreadPoolExecutor, as_completed
+              import requests
+              
+              URLS = [
+                'https://www.kaidee.com',
+                'https://www.python.org',
+                'https://www.google.com',
+              ]
+              
+              def fetch(url):
+                print('Fetching {}'.format(url))
+                resp = requests.get(url)
+                return resp.text
+              
+              with ThreadPoolExecutor(max_workers=2) as executor:
+                future_to_url = {executor.submit(fetch, url): url for url in URLS}
+                for future in as_completed(future_to_url):
+                  url = future_to_url[future]
+                  data = future.result()
+                  print('{} page is {} bytes'.format(url, len(data)))
+            </code></pre>
+          </section>
           <section data-background-iframe="images/thread_two_circle.svg">
             <div style="display: flex; flex-flow: row;">
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
@@ -121,6 +146,36 @@
           <section data-background-iframe="images/process_two_circle_bg.svg">
             <h2>Multiprocess</h2>
           </section>
+          <section>
+            <h4>Code example</h4>
+            <pre><code data-trim data-noescape style="font-size: 0.9em">
+              from concurrent.futures import ProcessPoolExecutor
+              import math
+              
+              PRIMES = [
+                112272535095293,
+                112582705942171,
+                112272535095293,
+                115280095190773,
+                115797848077099,
+                1099726899285419,
+              ]
+              
+              def is_prime(n):
+                if n % 2 == 0:
+                  return False
+              
+                sqrt_n = int(math.floor(math.sqrt(n)))
+                for i in range(3, sqrt_n + 1, 2):
+                  if n % i == 0:
+                    return False
+                return True
+              
+              with ProcessPoolExecutor(max_workers=4) as executor:
+                for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
+                  print('{} is prime: {}'.format(number, prime))
+            </code></pre>
+          </section>
           <section data-background-iframe="images/process_two_circle.svg">
             <div style="display: flex; flex-flow: row;">
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
@@ -144,6 +199,34 @@
         <section>
           <section data-background-iframe="images/event_loop_bg.svg">
             <h2>Eventloop</h2>
+          </section>
+          <section>
+            <h4>Code example</h4>
+            <pre><code data-trim data-noescape style="font-size: 0.9em">
+                import aiohttp
+                import asyncio
+                
+                URLS = [
+                  'https://www.kaidee.com',
+                  'https://www.python.org',
+                  'https://www.google.com',
+                ]
+                
+                async def fetch(session, url):
+                  print('Fetching {}'.format(url))
+                  async with session.get(url) as response:
+                    return await response.text()
+                
+                async def main():
+                  async with aiohttp.ClientSession() as session:
+                    coros = [fetch(session, url) for url in URLS]
+                    results = await asyncio.gather(*coros)
+                    for url, data in zip(URLS, results):
+                      print('{} page is {} bytes'.format(url, len(data)))
+                
+                loop = asyncio.get_event_loop()
+                loop.run_until_complete(main())
+            </code></pre>
           </section>
           <section>
             <iframe src="images/event_loop_runner.svg" class="stretch"></iframe>
