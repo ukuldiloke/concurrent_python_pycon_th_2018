@@ -262,6 +262,48 @@
           </section>
         </section>
         <section>
+          <section>
+            <h4>When to choose one over the other?</h4>
+            <div style="font-size: 0.8em">
+              <div style="display: flex; flex-flow: row;">
+                <div class="fragment" style="flex: 1">Compute heavy?</div>
+                <div class="fragment" style="flex: 1">Process</div>
+              </div>
+              <div style="display: flex; flex-flow: row;">
+                <div class="fragment" style="flex: 1">Lots of I/O?</div>
+                <div class="fragment" style="flex: 1">Thread | Eventloop</div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h4>What about Kaidee? <span class="fragment">We use all</span></h4>
+            <div style="display: flex; flex-flow: row;">
+              <div style="display: flex; flex-flow: column; flex: 1; padding: 10px" class="fragment">
+                <h6>Process</h6>
+                <ul style="font-size: 0.6em">
+                  <li>uWSGI Framework</li>
+                  <li>Scan bad words</li>
+                </ul>
+              </div>
+              <div style="display: flex; flex-flow: column; flex: 1; padding: 10px" class="fragment">
+                <h6>Thread</h6>
+                <ul style="font-size: 0.6em">
+                  <li>uWSGI Framework</li>
+                  <li>Save images</li>
+                  <li>Invoke other APIs</li>
+                </ul>
+              </div>
+              <div style="display: flex; flex-flow: column; flex: 1; padding: 10px" class="fragment">
+                <h6>Eventloop</h6>
+                <ul style="font-size: 0.6em">
+                  <li>Event consumer</li>
+                  <li>Load heavy APIs</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
           <h2>Questions?</h2>
         </section>
 			</div>
