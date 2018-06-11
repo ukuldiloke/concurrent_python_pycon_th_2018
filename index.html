@@ -173,10 +173,11 @@
                   if n % i == 0:
                     return False
                 return True
-              
-              with ProcessPoolExecutor(max_workers=4) as executor:
-                for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
-                  print('{} is prime: {}'.format(number, prime))
+
+              if __name__ == '__main__':
+                with ProcessPoolExecutor(max_workers=4) as executor:
+                  for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
+                    print('{} is prime: {}'.format(number, prime))
             </code></pre>
             <a href="https://repl.it/@UkridKuldiloke/PyCon-Process" style="font-size: 0.5em">
               https://repl.it/@UkridKuldiloke/PyCon-Process
