@@ -97,6 +97,9 @@
                   data = future.result()
                   print('{} page is {} bytes'.format(url, len(data)))
             </code></pre>
+            <a href="https://repl.it/@UkridKuldiloke/PyCon-Thread" style="font-size: 0.5em">
+              https://repl.it/@UkridKuldiloke/PyCon-Thread
+            </a>
           </section>
           <section data-background-iframe="images/thread_two_circle.svg">
             <div style="display: flex; flex-flow: row;">
@@ -175,6 +178,9 @@
                 for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
                   print('{} is prime: {}'.format(number, prime))
             </code></pre>
+            <a href="https://repl.it/@UkridKuldiloke/PyCon-Process" style="font-size: 0.5em">
+              https://repl.it/@UkridKuldiloke/PyCon-Process
+            </a>
           </section>
           <section data-background-iframe="images/process_two_circle.svg">
             <div style="display: flex; flex-flow: row;">
@@ -227,6 +233,9 @@
                 loop = asyncio.get_event_loop()
                 loop.run_until_complete(main())
             </code></pre>
+            <a href="https://repl.it/@UkridKuldiloke/PyCon-Eventloop" style="font-size: 0.5em">
+              https://repl.it/@UkridKuldiloke/PyCon-Eventloop
+            </a>
           </section>
           <section>
             <iframe src="images/event_loop_runner.svg" class="stretch"></iframe>
