@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="css/moo.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/atelier-forest-light.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -75,7 +75,7 @@
           </section>
           <section>
             <h4>Code example</h4>
-            <pre><code data-trim data-noescape style="font-size: 0.9em">
+            <pre><code data-trim data-noescape class="python" style="font-size: 0.9em">
               from concurrent.futures import ThreadPoolExecutor, as_completed
               import requests
               
@@ -89,13 +89,14 @@
                 print('Fetching {}'.format(url))
                 resp = requests.get(url)
                 return resp.text
-              
-              with ThreadPoolExecutor(max_workers=2) as executor:
-                future_to_url = {executor.submit(fetch, url): url for url in URLS}
-                for future in as_completed(future_to_url):
-                  url = future_to_url[future]
-                  data = future.result()
-                  print('{} page is {} bytes'.format(url, len(data)))
+             
+              if __name__ == '__main__':
+                with ThreadPoolExecutor(max_workers=2) as executor:
+                  future_to_url = {executor.submit(fetch, url): url for url in URLS}
+                  for future in as_completed(future_to_url):
+                    url = future_to_url[future]
+                    data = future.result()
+                    print('{} page is {} bytes'.format(url, len(data)))
             </code></pre>
             <a href="https://repl.it/@UkridKuldiloke/PyCon-Thread" style="font-size: 0.5em">
               https://repl.it/@UkridKuldiloke/PyCon-Thread
@@ -151,7 +152,7 @@
           </section>
           <section>
             <h4>Code example</h4>
-            <pre><code data-trim data-noescape style="font-size: 0.9em">
+            <pre><code data-trim data-noescape class="python" style="font-size: 0.9em">
               from concurrent.futures import ProcessPoolExecutor
               import math
               
@@ -209,7 +210,7 @@
           </section>
           <section>
             <h4>Code example</h4>
-            <pre><code data-trim data-noescape style="font-size: 0.9em">
+            <pre><code data-trim data-noescape class="python" style="font-size: 0.9em">
                 import aiohttp
                 import asyncio
                 
@@ -230,9 +231,10 @@
                     results = await asyncio.gather(*coros)
                     for url, data in zip(URLS, results):
                       print('{} page is {} bytes'.format(url, len(data)))
-                
-                loop = asyncio.get_event_loop()
-                loop.run_until_complete(main())
+               
+                if __name__ == '__main__':
+                  loop = asyncio.get_event_loop()
+                  loop.run_until_complete(main())
             </code></pre>
             <a href="https://repl.it/@UkridKuldiloke/PyCon-Eventloop" style="font-size: 0.5em">
               https://repl.it/@UkridKuldiloke/PyCon-Eventloop
