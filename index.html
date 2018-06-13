@@ -76,7 +76,7 @@
           <section>
             <h4>Code example</h4>
             <pre><code data-trim data-noescape class="python" style="font-size: 0.9em">
-              from concurrent.futures import ThreadPoolExecutor, as_completed
+              from concurrent.futures import ThreadPoolExecutor
               import requests
               
               URLS = [
@@ -92,10 +92,7 @@
              
               if __name__ == '__main__':
                 with ThreadPoolExecutor(max_workers=2) as executor:
-                  future_to_url = {executor.submit(fetch, url): url for url in URLS}
-                  for future in as_completed(future_to_url):
-                    url = future_to_url[future]
-                    data = future.result()
+                  for url, data in zip(URLS, executor.map(fetch, URLS)):
                     print('{} page is {} bytes'.format(url, len(data)))
             </code></pre>
             <a href="https://repl.it/@UkridKuldiloke/PyCon-Thread" style="font-size: 0.5em">
