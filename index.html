@@ -240,6 +240,37 @@
           <section>
             <iframe src="images/event_loop_runner.svg" class="stretch"></iframe>
           </section>
+          <section>
+            <h5>Differences between thread and eventloop</h5>
+            <div style="display: flex; flex-flow: row">
+              <div style="flex:1">
+                <pre><code data-trim data-noescape class="python">
+                  def first():
+                    statement_1
+                    sleep(1)
+                    statement_2
+
+                  def second():
+                    statement_3
+                    sleep(1)
+                    statement_4
+                </code></pre>
+              </div>
+              <div style="flex:1">
+                <pre><code data-trim data-noescape class="python">
+                  async def first():
+                    statement_1
+                    await asyncio.sleep(1)
+                    statement_2
+
+                  async def second():
+                    statement_3
+                    await asyncio.sleep(1)
+                    statement_4
+                </code></pre>
+              </div>
+            </div>
+          </section>
           <section data-background-iframe="images/event_loop.svg">
             <div style="display: flex; flex-flow: row;">
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
