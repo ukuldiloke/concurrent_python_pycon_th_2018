@@ -73,6 +73,47 @@
           <section data-background-iframe="images/thread_two_circle_bg.svg">
             <h2>Multithread</h2>
           </section>
+          <section data-background-iframe="images/thread_two_circle.svg">
+            <div style="display: flex; flex-flow: row;">
+              <div style="flex: 1; padding: 20px; font-size: 0.8em;">
+                <h3>Pro</h3>
+                <ul>
+                  <li>Light weight</li>
+                  <li>Good for I/O related tasks</li>
+                  <li>Easy data sharing</li>
+                </ul>
+              </div>
+              <div style="flex: 1; padding: 20px; font-size: 0.8em;">
+                <h3>Con</h3>
+                <ul>
+                  <li>Addressable memory is limited to the max memory of a single process</li>
+                  <li>Not suitable for computing heavy tasks</li>
+                  <li>Has limitation from <strong>GIL</strong></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section data-background-iframe="images/lock.svg">
+            <h2>GIL</h2>
+            <h5>(Global Interpreter Lock)</h5>
+          </section>
+          <section>
+            <div class="stretch">
+              <div style="display: flex; height: 100%; flex-flow: row;">
+                <iframe src="images/thread_in_interpreter.svg" style="flex: 1"></iframe>
+                <div style="display: flex; flex: 1">
+                  <div style="display: flex; flex: 1; flex-flow: column;" class="fragment">
+                    <h6>Expected</h6>
+                    <iframe src="images/multi_core_simultaneous_run.svg" style="flex: 1"></iframe>
+                  </div>
+                  <div style="display: flex; flex: 1; flex-flow: column;" class="fragment">
+                    <h6>Actual</h6>
+                    <iframe src="images/multi_core_block_run.svg" style="flex: 1"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
           <section>
             <h4>Code example</h4>
             <pre><code data-trim data-noescape class="python" style="font-size: 0.9em">
@@ -99,53 +140,29 @@
               https://repl.it/@UkridKuldiloke/PyCon-Thread
             </a>
           </section>
-          <section data-background-iframe="images/thread_two_circle.svg">
+        </section>
+        <section>
+          <section data-background-iframe="images/process_two_circle_bg.svg">
+            <h2>Multiprocess</h2>
+          </section>
+          <section data-background-iframe="images/process_two_circle.svg">
             <div style="display: flex; flex-flow: row;">
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
                 <h3>Pro</h3>
                 <ul>
-                  <li>Light weight</li>
-                  <li>Good for I/O related tasks</li>
-                  <li>Easy data sharing</li>
+                  <li>Good performance</li>
+                  <li>Take adventage of multicore architecture</li>
+                  <li>Does not has limitation from <strong>GIL</strong></li>
                 </ul>
               </div>
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
                 <h3>Con</h3>
                 <ul>
-                  <li>Addressable memory is limited to the max memory of a single process</li>
-                  <li>Not suitable for computing heavy tasks</li>
-                  <li>Has limitation from <strong>GIL</strong></li>
+                  <li>Not efficient data sharing</li>
+                  <li>Use more system resources</li>
                 </ul>
               </div>
             </div>
-          </section>
-        </section>
-        <section>
-          <section data-background-iframe="images/lock.svg">
-            <h2>GIL</h2>
-            <h5>(Global Interpreter Lock)</h5>
-          </section>
-          <section>
-            <div class="stretch">
-              <div style="display: flex; height: 100%; flex-flow: row;">
-                <iframe src="images/thread_in_interpreter.svg" style="flex: 1"></iframe>
-                <div style="display: flex; flex: 1">
-                  <div style="display: flex; flex: 1; flex-flow: column;" class="fragment">
-                    <h6>Expected</h6>
-                    <iframe src="images/multi_core_simultaneous_run.svg" style="flex: 1"></iframe>
-                  </div>
-                  <div style="display: flex; flex: 1; flex-flow: column;" class="fragment">
-                    <h6>Actual</h6>
-                    <iframe src="images/multi_core_block_run.svg" style="flex: 1"></iframe>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </section>
-        <section>
-          <section data-background-iframe="images/process_two_circle_bg.svg">
-            <h2>Multiprocess</h2>
           </section>
           <section>
             <h4>Code example</h4>
@@ -181,29 +198,13 @@
               https://repl.it/@UkridKuldiloke/PyCon-Process
             </a>
           </section>
-          <section data-background-iframe="images/process_two_circle.svg">
-            <div style="display: flex; flex-flow: row;">
-              <div style="flex: 1; padding: 20px; font-size: 0.8em;">
-                <h3>Pro</h3>
-                <ul>
-                  <li>Good performance</li>
-                  <li>Take adventage of multicore architecture</li>
-                  <li>Does not has limitation from <strong>GIL</strong></li>
-                </ul>
-              </div>
-              <div style="flex: 1; padding: 20px; font-size: 0.8em;">
-                <h3>Con</h3>
-                <ul>
-                  <li>Not efficient data sharing</li>
-                  <li>Use more system resources</li>
-                </ul>
-              </div>
-            </div>
-          </section>
         </section>
         <section>
           <section data-background-iframe="images/event_loop_bg.svg">
             <h2>Eventloop</h2>
+          </section>
+          <section>
+            <iframe src="images/event_loop_runner.svg" class="stretch"></iframe>
           </section>
           <section>
             <h4>Code example</h4>
@@ -236,9 +237,6 @@
             <a href="https://repl.it/@UkridKuldiloke/PyCon-Eventloop" style="font-size: 0.5em">
               https://repl.it/@UkridKuldiloke/PyCon-Eventloop
             </a>
-          </section>
-          <section>
-            <iframe src="images/event_loop_runner.svg" class="stretch"></iframe>
           </section>
           <section>
             <h5>Differences between thread and eventloop</h5>
