@@ -44,28 +44,31 @@
           </div>
         </section>
         <section>
-          <div style="display: flex; padding-bottom: 5vh">
-            <div style="flex: 1;display: flex;justify-content: flex-end;align-items: center;">
-              <iframe src="images/thread_two_circle.svg"></iframe>
+          <div class="stretch" style="display: flex; flex-flow: column;">
+            <h4>What to cover?</h4>
+            <div style="display: flex; flex: 1;" class="fragment">
+              <div style="flex: 1;display: flex;justify-content: flex-end;align-items: center;">
+                <iframe src="images/thread_two_circle.svg"></iframe>
+              </div>
+              <div style="flex: 1;display: flex;align-items: center;">
+                <div style="font-size: 0.8em">Multithread</div>
+              </div>
             </div>
-            <div style="flex: 1;display: flex;align-items: center;">
-              <div style="font-size: 0.8em">Multithread</div>
+            <div style="display: flex; flex: 1;" class="fragment">
+              <div style="flex: 1;display: flex;justify-content: flex-end;align-items: center;">
+                <iframe src="images/process_two_circle.svg"></iframe>
+              </div>
+              <div style="flex: 1;display: flex;align-items: center;">
+                <div style="font-size: 0.8em;">Multiprocess</div>
+              </div>
             </div>
-          </div>
-          <div style="display: flex; padding-bottom: 5vh">
-            <div style="flex: 1;display: flex;justify-content: flex-end;align-items: center;">
-              <iframe src="images/process_two_circle.svg"></iframe>
-            </div>
-            <div style="flex: 1;display: flex;align-items: center;">
-              <div style="font-size: 0.8em;">Multiprocess</div>
-            </div>
-          </div>
-          <div style="display: flex; padding-bottom: 5vh">
-            <div style="flex: 1;display: flex;justify-content: flex-end;align-items: center;">
-              <iframe src="images/event_loop.svg"></iframe>
-            </div>
-            <div style="flex: 1;display: flex;align-items: center;">
-              <div style="font-size: 0.8em">Eventloop</div>
+            <div style="display: flex; flex: 1;" class="fragment">
+              <div style="flex: 1;display: flex;justify-content: flex-end;align-items: center;">
+                <iframe src="images/event_loop.svg"></iframe>
+              </div>
+              <div style="flex: 1;display: flex;align-items: center;">
+                <div style="font-size: 0.8em">Eventloop</div>
+              </div>
             </div>
           </div>
         </section>
@@ -78,17 +81,17 @@
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
                 <h3>Pro</h3>
                 <ul>
-                  <li>Light weight</li>
-                  <li>Good for I/O related tasks</li>
-                  <li>Easy data sharing</li>
+                  <li class="fragment">Light weight</li>
+                  <li class="fragment">Good for I/O related tasks</li>
+                  <li class="fragment">Easy data sharing</li>
                 </ul>
               </div>
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
                 <h3>Con</h3>
                 <ul>
-                  <li>Addressable memory is limited to the max memory of a single process</li>
-                  <li>Not suitable for computing heavy tasks</li>
-                  <li>Has limitation from <strong>GIL</strong></li>
+                  <li class="fragment">Addressable memory is limited to the max memory of a single process</li>
+                  <li class="fragment">Not suitable for computing heavy tasks</li>
+                  <li class="fragment">Has limitation from <strong>GIL</strong></li>
                 </ul>
               </div>
             </div>
@@ -150,16 +153,16 @@
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
                 <h3>Pro</h3>
                 <ul>
-                  <li>Good performance</li>
-                  <li>Take adventage of multicore architecture</li>
-                  <li>Does not has limitation from <strong>GIL</strong></li>
+                  <li class="fragment">Good performance</li>
+                  <li class="fragment">Take adventage of multicore architecture</li>
+                  <li class="fragment">Does not has limitation from <strong>GIL</strong></li>
                 </ul>
               </div>
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
                 <h3>Con</h3>
                 <ul>
-                  <li>Not efficient data sharing</li>
-                  <li>Use more system resources</li>
+                  <li class="fragment">Not efficient data sharing</li>
+                  <li class="fragment">Use more system resources</li>
                 </ul>
               </div>
             </div>
@@ -274,16 +277,16 @@
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
                 <h3>Pro</h3>
                 <ul>
-                  <li>Not affected from <strong>GIL</strong></li>
-                  <li>Precise flow control</li>
-                  <li>Easy to create automated test</li>
+                  <li class="fragment">Not affected from <strong>GIL</strong></li>
+                  <li class="fragment">Precise flow control</li>
+                  <li class="fragment">Easy to create automated test</li>
                 </ul>
               </div>
               <div style="flex: 1; padding: 20px; font-size: 0.8em;">
                 <h3>Con</h3>
                 <ul>
-                  <li>A bit hard to understand and visualize</li>
-                  <li>Much less support library</li>
+                  <li class="fragment">A bit hard to understand and visualize</li>
+                  <li class="fragment">Much less support library</li>
                 </ul>
               </div>
             </div>
