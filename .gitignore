@@ -11,3 +11,8 @@ node_modules/
 .sass-cache
 css/reveal.min.css
 js/reveal.min.js
+.firebaserc
+firebase.json
+package-lock.json
+venv/*
+404.html
