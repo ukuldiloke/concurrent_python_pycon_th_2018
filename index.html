@@ -367,28 +367,80 @@
               <div style="flex:1">
                 <pre><code data-trim data-noescape class="python">
                   def first():
-                    statement_1
+                    print('pig')
                     sleep(1)
-                    statement_2
+                    print('crow')
 
                   def second():
-                    statement_3
+                    print('dog')
                     sleep(1)
-                    statement_4
+                    print('chicken')
                 </code></pre>
               </div>
               <div style="flex:1">
                 <pre><code data-trim data-noescape class="python">
                   async def first():
-                    statement_1
+                    print('pig')
                     await asyncio.sleep(1)
-                    statement_2
+                    print('crow')
 
                   async def second():
-                    statement_3
+                    print('dog')
                     await asyncio.sleep(1)
-                    statement_4
+                    print('chicken')
                 </code></pre>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h5>Outcome</h5>
+            <div style="display: flex; flex-flow: row">
+              <div style="flex:1">
+                <pre><code data-trim data-noescape class="python">
+                  def first():
+                    print('pig')
+                    sleep(1)
+                    print('crow')
+
+                  def second():
+                    print('dog')
+                    sleep(1)
+                    print('chicken')
+                </code></pre>
+              </div>
+              <div style="flex:1">
+                <div class="fragment" style="font-size: 0.8em">...pig dog crow chicken</div>
+                <div class="fragment" style="font-size: 0.8em">...pig dog chicken crow</div>
+                <!-- <div class="fragment" style="font-size: 0.8em">...pig crow dog chicken</div> -->
+                <div class="fragment" style="font-size: 0.8em">...dog pig chicken crow</div>
+                <div class="fragment" style="font-size: 0.8em">...dog pig crow chicken</div>
+                <!-- <div class="fragment" style="font-size: 0.8em">...dog chicken pig crow</div> -->
+                <div class="fragment" style="font-size: 0.8em">!!!</div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h5>Outcome</h5>
+            <div style="display: flex; flex-flow: row">
+              <div style="flex:1">
+                <pre><code data-trim data-noescape class="python">
+                  async def first():
+                    print('pig')
+                    await asyncio.sleep(1)
+                    print('crow')
+
+                  async def second():
+                    print('dog')
+                    await asyncio.sleep(1)
+                    print('chicken')
+                </code></pre>
+              </div>
+              <div style="flex:1">
+                <div class="fragment" style="font-size: 0.8em">...pig dog crow chicken</div>
+                <div class="fragment" style="font-size: 0.8em">...pig dog crow chicken</div>
+                <div class="fragment" style="font-size: 0.8em">...pig dog crow chicken</div>
+                <div class="fragment" style="font-size: 0.8em">...pig dog crow chicken</div>
+                <div class="fragment" style="font-size: 0.8em">~(oo)~</div>
               </div>
             </div>
           </section>
