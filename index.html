@@ -120,6 +120,61 @@
           <section>
             <h4>Code example</h4>
             <pre><code data-trim data-noescape class="python" style="font-size: 0.9em">
+              from threading import Thread
+              import requests
+
+              URLS = [
+                'https://www.kaidee.com',
+                'https://www.python.org',
+                'https://www.google.com',
+              ]
+
+              def fetch(url):
+                print('Fetching {}'.format(url))
+                resp = requests.get(url)
+                data = resp.text
+                print('{} page is {} bytes'.format(url, len(data)))
+
+              if __name__ == '__main__':
+                threads = [Thread(target=fetch, args=(url,)) for url in URLS]
+                for t in threads:
+                  t.start()
+                for t in threads:
+                  t.join()
+            </code></pre>
+            <a href="https://repl.it/@UkridKuldiloke/PyCon-SimpleThread" style="font-size: 0.5em">
+              https://repl.it/@UkridKuldiloke/PyCon-SimpleThread
+            </a>
+          </section>
+          <section>
+            <h4>Code example</h4>
+            <pre><code data-trim data-noescape class="python" style="font-size: 0.9em">
+              from multiprocessing.pool import ThreadPool
+              import requests
+              
+              URLS = [
+                'https://www.kaidee.com',
+                'https://www.python.org',
+                'https://www.google.com',
+              ]
+              
+              def fetch(url):
+                print('Fetching {}'.format(url))
+                resp = requests.get(url)
+                data = resp.text
+                print('{} page is {} bytes'.format(url, len(data)))
+              
+              if __name__ == '__main__':
+                with ThreadPool(processes=3) as pool:
+                  pool.map(fetch, URLS)
+            </code></pre>
+            <a href="https://repl.it/@UkridKuldiloke/PyCon-ThreadPool" style="font-size: 0.5em">
+              https://repl.it/@UkridKuldiloke/PyCon-ThreadPool
+            </a>
+          </section>
+          <!-- <section>
+            <h4>Code example</h4>
+            <pre><code data-trim data-noescape class="python" style="font-size: 0.9em">
               from concurrent.futures import ThreadPoolExecutor
               import requests
               
@@ -132,17 +187,17 @@
               def fetch(url):
                 print('Fetching {}'.format(url))
                 resp = requests.get(url)
-                return resp.text
-             
+                data = resp.text
+                print('{} page is {} bytes'.format(url, len(data)))
+              
               if __name__ == '__main__':
-                with ThreadPoolExecutor(max_workers=2) as executor:
-                  for url, data in zip(URLS, executor.map(fetch, URLS)):
-                    print('{} page is {} bytes'.format(url, len(data)))
+                with ThreadPoolExecutor(max_workers=3) as executor:
+                  executor.map(fetch, URLS)
             </code></pre>
             <a href="https://repl.it/@UkridKuldiloke/PyCon-Thread" style="font-size: 0.5em">
               https://repl.it/@UkridKuldiloke/PyCon-Thread
             </a>
-          </section>
+          </section> -->
         </section>
         <section>
           <section data-background-iframe="images/process_two_circle_bg.svg">
@@ -170,13 +225,79 @@
           <section>
             <h4>Code example</h4>
             <pre><code data-trim data-noescape class="python" style="font-size: 0.9em">
+              from multiprocessing import Process
+              import math
+              
+              PRIMES = [
+                115280095190773,
+                115797848077099,
+                1099726899285419,
+              ]
+              
+              def is_prime(n):
+                if n % 2 == 0:
+                  return False
+              
+                sqrt_n = int(math.floor(math.sqrt(n)))
+                for i in range(3, sqrt_n + 1, 2):
+                  if n % i == 0:
+                    return False
+                return True
+              
+              def check_prime(n):
+                print('{} is prime: {}'.format(n, is_prime(n)))
+              
+              if __name__ == '__main__':
+                processes = [Process(target=check_prime, args=(n,)) for n in PRIMES]
+                for p in processes:
+                  p.start()
+                for p in processes:
+                  p.join()
+            </code></pre>
+            <a href="https://repl.it/@UkridKuldiloke/PyCon-SimpleProcess" style="font-size: 0.5em">
+              https://repl.it/@UkridKuldiloke/PyCon-SimpleProcess
+            </a>
+          </section>
+          <section>
+            <h4>Code example</h4>
+            <pre><code data-trim data-noescape class="python" style="font-size: 0.9em">
+              from multiprocessing.pool import Pool
+              import math
+              
+              PRIMES = [
+                115280095190773,
+                115797848077099,
+                1099726899285419,
+              ]
+              
+              def is_prime(n):
+                if n % 2 == 0:
+                  return False
+              
+                sqrt_n = int(math.floor(math.sqrt(n)))
+                for i in range(3, sqrt_n + 1, 2):
+                  if n % i == 0:
+                    return False
+                return True
+              
+              def check_prime(n):
+                print('{} is prime: {}'.format(n, is_prime(n)))
+              
+              if __name__ == '__main__':
+                with Pool(processes=3) as pool:
+                  pool.map(check_prime, PRIMES)
+            </code></pre>
+            <a href="https://repl.it/@UkridKuldiloke/PyCon-ProcessPool" style="font-size: 0.5em">
+              https://repl.it/@UkridKuldiloke/PyCon-ProcessPool
+            </a>
+          </section>
+          <!-- <section>
+            <h4>Code example</h4>
+            <pre><code data-trim data-noescape class="python" style="font-size: 0.9em">
               from concurrent.futures import ProcessPoolExecutor
               import math
               
               PRIMES = [
-                112272535095293,
-                112582705942171,
-                112272535095293,
                 115280095190773,
                 115797848077099,
                 1099726899285419,
@@ -200,7 +321,7 @@
             <a href="https://repl.it/@UkridKuldiloke/PyCon-Process" style="font-size: 0.5em">
               https://repl.it/@UkridKuldiloke/PyCon-Process
             </a>
-          </section>
+          </section> -->
         </section>
         <section>
           <section data-background-iframe="images/event_loop_bg.svg">
@@ -212,30 +333,29 @@
           <section>
             <h4>Code example</h4>
             <pre><code data-trim data-noescape class="python" style="font-size: 0.9em">
-                import aiohttp
-                import asyncio
-                
-                URLS = [
-                  'https://www.kaidee.com',
-                  'https://www.python.org',
-                  'https://www.google.com',
-                ]
-                
-                async def fetch(session, url):
-                  print('Fetching {}'.format(url))
-                  async with session.get(url) as response:
-                    return await response.text()
-                
-                async def main():
-                  async with aiohttp.ClientSession() as session:
-                    coros = [fetch(session, url) for url in URLS]
-                    results = await asyncio.gather(*coros)
-                    for url, data in zip(URLS, results):
-                      print('{} page is {} bytes'.format(url, len(data)))
-               
-                if __name__ == '__main__':
-                  loop = asyncio.get_event_loop()
-                  loop.run_until_complete(main())
+              import asyncio
+              import aiohttp
+              
+              URLS = [
+                'https://www.kaidee.com',
+                'https://www.python.org',
+                'https://www.google.com',
+              ]
+              
+              async def fetch(client, url):
+                print('Fetching {}'.format(url))
+                async with client.get(url) as response:
+                  data = await response.text()
+                  print('{} page is {} bytes'.format(url, len(data)))
+              
+              async def main():
+                async with aiohttp.ClientSession() as client:
+                  coros = [fetch(client, url) for url in URLS]
+                  await asyncio.gather(*coros)
+              
+              if __name__ == '__main__':
+                loop = asyncio.get_event_loop()
+                loop.run_until_complete(main())
             </code></pre>
             <a href="https://repl.it/@UkridKuldiloke/PyCon-Eventloop" style="font-size: 0.5em">
               https://repl.it/@UkridKuldiloke/PyCon-Eventloop

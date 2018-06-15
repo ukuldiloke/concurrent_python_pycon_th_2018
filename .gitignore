@@ -16,3 +16,4 @@ firebase.json
 package-lock.json
 venv/*
 404.html
+.vscode
